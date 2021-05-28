@@ -10,11 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_021207) do
+ActiveRecord::Schema.define(version: 2021_05_28_032310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
   enable_extension "plpgsql"
+
+  create_table "date_requests", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.boolean "acceptance"
+    t.boolean "weekly_rose"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "caption"
+    t.string "image_one"
+    t.integer "owner_id"
+    t.string "location"
+    t.string "image_two"
+    t.string "image_three"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "prompts", force: :cascade do |t|
+    t.string "questions"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "prompts_answers", force: :cascade do |t|
+    t.text "prompt_one"
+    t.integer "owner_id"
+    t.integer "prompt_id"
+    t.string "prompt_two"
+    t.string "prompt_three"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
