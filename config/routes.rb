@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root "photos#index"
+  root "home#show"
 
-  devise_for :users
+   devise_for :users
   resources :prompts
   resources :prompts_answers
   resources :date_requests
