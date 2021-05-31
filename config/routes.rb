@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "home#show"
 
+  get ":editprofile" => "editprofile#edit", as: :editprofile
+
    devise_for :users
   resources :prompts
   resources :prompts_answers

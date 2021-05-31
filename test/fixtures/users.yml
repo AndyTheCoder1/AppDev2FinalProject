@@ -3,32 +3,38 @@
 # Table name: users
 #
 #  id                             :bigint           not null, primary key
+#  active                         :boolean          default(TRUE)
+#  age                            :integer          default(0)
+#  daily_photo_reveals            :integer          default(0)
+#  drinking                       :string
 #  email                          :string           default(""), not null
 #  encrypted_password             :string           default(""), not null
-#  reset_password_token           :string
-#  reset_password_sent_at         :datetime
-#  remember_created_at            :datetime
-#  username                       :citext
-#  religion                       :string
-#  political_affiliation          :string
-#  height                         :string
-#  hometown                       :string
-#  age                            :integer          default(0)
-#  job_title                      :string
-#  school                         :string
 #  family_plans                   :string
 #  gender                         :string
-#  drinking                       :string
+#  height                         :string
+#  hometown                       :string
+#  job_title                      :string
+#  own_photos_count               :integer          default(0)
+#  political_affiliation          :string
+#  received_follow_requests_count :integer          default(0)
+#  religion                       :string
+#  remember_created_at            :datetime
+#  reset_password_sent_at         :datetime
+#  reset_password_token           :string
+#  romantic_interests             :string
+#  school                         :string
+#  sent_follow_requests_count     :integer          default(0)
 #  smoking                        :string
 #  undergrad_school               :string
-#  romantic_interests             :string
-#  daily_photo_reveals            :integer          default(0)
-#  sent_follow_requests_count     :integer          default(0)
-#  received_follow_requests_count :integer          default(0)
-#  own_photos_count               :integer          default(0)
-#  active                         :boolean          default(TRUE)
+#  username                       :citext
 #  created_at                     :datetime         not null
 #  updated_at                     :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_username              (username)
 #
 
 # This model initially had no columns defined. If you add columns to the
